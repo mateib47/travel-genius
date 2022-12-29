@@ -1,14 +1,22 @@
-import "./App.css";
+import {Home, TopBar} from "./components";
 
 function App() {
   return (
-    <div>
-      <h1>Welcome to the AI Travel Planner</h1>
-      <p>
-        Plan your dream vacation with the help of our intelligent AI assistant.
-      </p>
-      <button>Start planning</button>
-    </div>
+    <ThemeProvider theme={themes[theme]}>
+        <CssBaseline />
+        <Box>
+          <TopBar/>
+          <Container
+            className="sections"
+            sx={{ backgroundColor: "background.default" }}
+            maxWidth={false}
+          >
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </Container>
+        </Box>
+    </ThemeProvider>
   );
 }
 
