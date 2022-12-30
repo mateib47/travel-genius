@@ -12,16 +12,61 @@ import {
       ...globalTheme,
       palette: {
         primary: {
-          main: "#13678A",
+          main: '#00bcd4',
         },
         secondary: {
-          main: "#45C4B0",
+          main: '#f44336',
+        },
+        tertiary: {
+          main: '#e91e63',
         },
         background: {
-          default: "#fff",
+          default: '#fff',
+          paper: '#fafafa',
         },
         text: {
-          default: "#000",
+          primary: '#212121',
+          secondary: '#757575',
+        },
+      },
+      typography: {
+        h1: {
+          fontSize: '3rem',
+          fontWeight: 'bold',
+          color: 'text.primary',
+        },
+        h2: {
+          fontSize: '2.5rem',
+          fontWeight: 'bold',
+          color: 'text.primary',
+        },
+        h3: {
+          fontSize: '2rem',
+          fontWeight: 'bold',
+          color: 'text.primary',
+        },
+        h4: {
+          fontSize: '1.5rem',
+          fontWeight: 'bold',
+          color: 'text.primary',
+        },
+        h5: {
+          fontSize: '1.25rem',
+          fontWeight: 'bold',
+          color: 'text.primary',
+        },
+        h6: {
+          fontSize: '1rem',
+          fontWeight: 'bold',
+          color: 'text.primary',
+        },
+        body1: {
+          fontSize: '1rem',
+          color: 'text.primary',
+        },
+        body2: {
+          fontSize: '0.875rem',
+          color: 'text.secondary',
         },
       },
       components: {

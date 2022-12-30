@@ -1,15 +1,19 @@
-import React from 'react'
+import React from "react";
+import { Box, Button, Container, Typography } from "@mui/material";
+import { CenteredContainer } from "../../../utils";
 
 const Home = () => {
   return (
-    <div>
-      <h1>Welcome to the AI Travel Planner</h1>
-      <p>
+    <>
+      <Typography variant="h1">Welcome to the AI Travel Planner</Typography>
+      <Typography variant="body1">
         Plan your dream vacation with the help of our intelligent AI assistant.
-      </p>
-      <button>Start planning</button>
-    </div>
-  )
-}
+      </Typography>
+      <Button variant="contained" color="primary">
+        Start planning
+      </Button>
+    </>
+  );
+};
 
-export default Home
+export default Home;
