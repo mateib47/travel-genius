@@ -5,11 +5,11 @@ import { CenteredContainer } from "../../../utils";
 const Home = () => {
   return (
     <>
-      <Typography variant="h1">Welcome to the AI Travel Planner</Typography>
-      <Typography variant="body1">
+      <Typography variant="h1" align="center">Welcome to the AI Travel Planner</Typography>
+      <Typography variant="body1" align="center">
         Plan your dream vacation with the help of our intelligent AI assistant.
       </Typography>
-      <Button variant="contained" color="primary">
+      <Button variant="contained" color="primary" sx={{m:2}}>
         Start planning
       </Button>
     </>
