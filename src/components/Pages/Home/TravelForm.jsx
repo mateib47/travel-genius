@@ -12,8 +12,9 @@ import {
   Checkbox,
   RadioGroup,
   Box,
+  FormLabel,
 } from "@mui/material";
-import { Grid } from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
@@ -49,7 +50,7 @@ const TravelForm = () => {
         >
           <div>
             <Grid container spacing={6}>
-              <Grid item xs={12}>
+              <Grid xs={12}>
                 <FormControl sx={{ display: "flex" }}>
                   <InputLabel htmlFor="destination">Destination</InputLabel>
                   <Select
@@ -70,25 +71,25 @@ const TravelForm = () => {
                 </FormControl>
               </Grid>
 
-              <Grid item xs={4}>
+              <Grid xs={4}>
                 <DesktopDatePicker
                   label="Start date"
-                  inputFormat="MM/DD/YYYY"
+                  inputFormat="DD/MM/YYYY"
                   value={startDate}
-                  onChange={(event) => setStartDate(event.target.value)}
+                  onChange={(event) => setStartDate(event._d)}
                   renderInput={(params) => <TextField {...params} />}
                 />
               </Grid>
-              <Grid item xs={4}>
+              <Grid xs={4}>
                 <DesktopDatePicker
                   label="End date"
-                  inputFormat="MM/DD/YYYY"
+                  inputFormat="DD/MM/YYYY"
                   value={endDate}
-                  onChange={(event) => setEndDate(event.target.value)}
+                  onChange={(event) => setEndDate(event._d)}
                   renderInput={(params) => <TextField {...params} />}
                 />
               </Grid>
-              <Grid item xs={4}>
+              <Grid xs={4}>
                 <FormControl sx={{ width: "100%" }}>
                   <InputLabel htmlFor="num-travelers">
                     Number of travelers
@@ -110,7 +111,7 @@ const TravelForm = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={6}>
+              <Grid xs={6}>
                 <FormControl component="fieldset" sx={{ display: "flex" }}>
                   {preferencesList.map((p) => (
                     <FormControlLabel
@@ -132,12 +133,15 @@ const TravelForm = () => {
                   ))}
                 </FormControl>
               </Grid>
-              <Grid item xs={6}>
+              <Grid xs={6}>
                 <FormControl component="fieldset">
+                  <FormLabel id="radio-buttons-group-label">
+                    Accommodation
+                  </FormLabel>
+
                   <RadioGroup
-                    aria-label="accommodation type"
+                    aria-labelledby="radio-buttons-group-label"
                     name="accommodation-type"
-                    value={preferences.accommodationType}
                     onChange={(event) =>
                       setPreferences((prev) => ({
                         ...prev,
@@ -145,17 +149,25 @@ const TravelForm = () => {
                       }))
                     }
                   >
-                    {accommodationsList.map((a) => (
-                      <FormControlLabel
-                        value={a.toLocaleLowerCase}
+                    <FormControlLabel
+                        value={"hotel"}
                         control={<Radio />}
-                        label={a}
+                        label={"Hotel"}
                       />
-                    ))}
+                      <FormControlLabel
+                        value={"airbnb"}
+                        control={<Radio />}
+                        label={"AirBnb"}
+                      />
+                      <FormControlLabel
+                        value={"hostel"}
+                        control={<Radio />}
+                        label={"Hostel"}
+                      />
                   </RadioGroup>
                 </FormControl>
               </Grid>
-              <Grid item xs={6}>
+              <Grid xs={6}>
                 <TextField
                   label="Budget"
                   type="number"
@@ -163,7 +175,7 @@ const TravelForm = () => {
                   onChange={(event) => setBudget(event.target.value)}
                 />
               </Grid>
-              <CenteredGrid item xs={12}>
+              <CenteredGrid xs={12}>
                 <Button type="submit" variant="contained" color="primary">
                   Generate itinerary
                 </Button>
